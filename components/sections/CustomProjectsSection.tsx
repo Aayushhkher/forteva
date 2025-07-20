@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { useState } from 'react'
-import { MessageSquare, Send, ArrowRight } from 'lucide-react'
+import { MessageSquare, Send, ArrowRight, ExternalLink } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 
 const projectCategories = [
@@ -14,17 +14,19 @@ const projectCategories = [
     examples: ['Real-time Network Monitoring', 'Traffic Analysis', 'Security Alerts'],
     features: ['Live Network Monitoring', 'Traffic Visualization', 'Security Alerts', 'Performance Analytics'],
     status: 'Live',
-    color: 'from-blue-500/20 to-cyan-500/20'
+    color: 'from-blue-500/20 to-cyan-500/20',
+    demoUrl: null
   },
   {
     id: 2,
     title: 'PLUMBER BOOKING',
-    description: 'Multi-dashboard system for booking plumbers and service providers',
+    description: 'Multi-dashboard system for booking plumbers and service providers with multi-attribute selection and third-party API integration',
     icon: '🔧',
-    examples: ['Customer Dashboard', 'Provider Management', 'Booking System'],
-    features: ['Customer Dashboard', 'Provider Management', 'Real-time Booking', 'Payment Integration'],
+    examples: ['Customer Dashboard', 'Admin Dashboard', 'Plumber Dashboard'],
+    features: ['Multi-attribute Selection', 'Third-party API Keys', 'Real-time Booking', 'Payment Integration'],
     status: 'Demo',
-    color: 'from-green-500/20 to-emerald-500/20'
+    color: 'from-green-500/20 to-emerald-500/20',
+    demoUrl: 'https://web-production-fbd8.up.railway.app'
   }
 ]
 
@@ -99,13 +101,28 @@ export function CustomProjectsSection() {
                     </div>
                     
                     {/* Examples */}
-                    <div className="space-y-1">
+                    <div className="space-y-1 mb-4">
                       {category.examples.map((example, i) => (
                         <div key={i} className="text-sm text-forteva-text/70">
                           • {example}
                         </div>
                       ))}
                     </div>
+                    
+                    {/* Demo Link */}
+                    {category.demoUrl && (
+                      <div className="mt-4">
+                        <a
+                          href={category.demoUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-forteva-cta/10 text-forteva-cta hover:bg-forteva-cta/20 transition-all duration-300 border border-forteva-cta/20"
+                        >
+                          <ExternalLink className="w-4 h-4" />
+                          View Live Demo
+                        </a>
+                      </div>
+                    )}
                   </div>
                 </motion.div>
               ))}
@@ -181,13 +198,26 @@ export function CustomProjectsSection() {
                         <p className="text-xs text-forteva-text/60 mb-2">
                           {project.description}
                         </p>
-                        <div className="flex flex-wrap gap-1">
+                        <div className="flex flex-wrap gap-1 mb-2">
                           {project.features.slice(0, 2).map((feature, i) => (
                             <span key={i} className="text-xs text-forteva-text/50 bg-forteva-accent/10 px-2 py-1 rounded">
                               {feature}
                             </span>
                           ))}
                         </div>
+                        {project.demoUrl && (
+                          <div className="flex justify-end">
+                            <a
+                              href={project.demoUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center gap-1 text-xs text-forteva-cta hover:text-forteva-text transition-colors"
+                            >
+                              <ExternalLink className="w-3 h-3" />
+                              View Demo
+                            </a>
+                          </div>
+                        )}
                       </div>
                     ))}
                   </div>

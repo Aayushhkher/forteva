@@ -32,17 +32,19 @@ const tools = [
     status: 'active',
     type: 'Network Tool',
     lastUsed: '2 hours ago',
-    features: ['Real-time Monitoring', 'Traffic Analysis', 'Security Alerts']
+    features: ['Real-time Monitoring', 'Traffic Analysis', 'Security Alerts'],
+    demoUrl: null
   },
   {
     id: 2,
     name: 'PLUMBER BOOKING',
-    description: 'Multi-dashboard system for booking plumbers and service providers',
+    description: 'Multi-dashboard system for booking plumbers and service providers with multi-attribute selection and third-party API integration',
     icon: Bot,
     status: 'active',
     type: 'Booking System',
     lastUsed: '1 day ago',
-    features: ['Customer Dashboard', 'Provider Management', 'Booking System']
+    features: ['Multi-attribute Selection', 'Third-party API Keys', 'Customer Dashboard', 'Admin Dashboard', 'Plumber Dashboard'],
+    demoUrl: 'https://web-production-fbd8.up.railway.app'
   }
 ]
 
@@ -235,9 +237,21 @@ export default function DashboardPage() {
                         <Play className="w-4 h-4 mr-2" />
                         Launch Tool
                       </Button>
-                      <Button size="sm" variant="secondary">
-                        <ExternalLink className="w-4 h-4" />
-                      </Button>
+                      {tool.demoUrl ? (
+                        <a
+                          href={tool.demoUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <Button size="sm" variant="secondary">
+                            <ExternalLink className="w-4 h-4" />
+                          </Button>
+                        </a>
+                      ) : (
+                        <Button size="sm" variant="secondary" disabled>
+                          <ExternalLink className="w-4 h-4" />
+                        </Button>
+                      )}
                     </div>
                   </div>
                 ))}
