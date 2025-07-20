@@ -19,7 +19,7 @@ const projectCategories = [
   },
   {
     id: 2,
-    title: 'PLUMBER BOOKING',
+    title: 'SERVICEHUB PRO',
     description: 'Multi-dashboard system for booking plumbers and service providers with multi-attribute selection and third-party API integration',
     icon: '🔧',
     examples: ['Customer Dashboard', 'Admin Dashboard', 'Plumber Dashboard'],
