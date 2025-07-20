@@ -37,7 +37,7 @@ const tools = [
   },
   {
     id: 2,
-    name: 'PLUMBER BOOKING',
+    name: 'SERVICEHUB PRO',
     description: 'Multi-dashboard system for booking plumbers and service providers with multi-attribute selection and third-party API integration',
     icon: Bot,
     status: 'active',
