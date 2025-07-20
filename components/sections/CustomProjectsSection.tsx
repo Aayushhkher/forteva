@@ -62,7 +62,7 @@ export function CustomProjectsSection() {
             viewport={{ once: true }}
             className="relative"
           >
-            <div className="relative h-96 rounded-2xl overflow-hidden glassmorphism">
+            <div className="relative min-h-[28rem] rounded-2xl overflow-hidden glassmorphism">
               {projectCategories.map((category, index) => (
                 <motion.div
                   key={category.id}
@@ -73,35 +73,35 @@ export function CustomProjectsSection() {
                     zIndex: activeCategory === index ? 10 : 0
                   }}
                   transition={{ duration: 0.5 }}
-                  className="absolute inset-0 p-8 flex flex-col justify-center"
+                  className="absolute inset-0 p-8 flex flex-col justify-center items-center"
                 >
-                  <div className="text-center">
-                    <div className="text-6xl mb-4">{category.icon}</div>
+                  <div className="text-center w-full max-w-sm">
+                    <div className="text-5xl mb-3">{category.icon}</div>
                     
                     {/* Status Badge */}
-                    <div className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-forteva-accent/20 text-forteva-text text-xs font-medium mb-4">
+                    <div className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-forteva-accent/20 text-forteva-text text-xs font-medium mb-3">
                       <div className={`w-2 h-2 rounded-full ${category.status === 'Live' ? 'bg-green-400' : 'bg-yellow-400'}`} />
                       {category.status}
                     </div>
                     
-                    <h3 className="text-2xl font-futuristic font-bold mb-3 text-forteva-cta">
+                    <h3 className="text-xl font-futuristic font-bold mb-3 text-forteva-cta">
                       {category.title}
                     </h3>
-                    <p className="text-forteva-text/80 mb-4">
+                    <p className="text-forteva-text/80 mb-4 text-center text-sm leading-relaxed">
                       {category.description}
                     </p>
                     
                     {/* Features Grid */}
                     <div className="grid grid-cols-2 gap-2 mb-4">
                       {category.features.map((feature, i) => (
-                        <div key={i} className="text-xs text-forteva-text/60 bg-forteva-accent/10 rounded-lg p-2">
+                        <div key={i} className="text-xs text-forteva-text/60 bg-forteva-accent/10 rounded-lg p-2 text-center">
                           {feature}
                         </div>
                       ))}
                     </div>
                     
                     {/* Examples */}
-                    <div className="space-y-1 mb-4">
+                    <div className="space-y-1 mb-4 text-center">
                       {category.examples.map((example, i) => (
                         <div key={i} className="text-sm text-forteva-text/70">
                           • {example}
@@ -111,12 +111,12 @@ export function CustomProjectsSection() {
                     
                     {/* Demo Link */}
                     {category.demoUrl && (
-                      <div className="mt-4">
+                      <div className="mt-4 text-center">
                         <a
                           href={category.demoUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-forteva-cta/10 text-forteva-cta hover:bg-forteva-cta/20 transition-all duration-300 border border-forteva-cta/20"
+                          className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-forteva-cta/10 text-forteva-cta hover:bg-forteva-cta/20 transition-all duration-300 border border-forteva-cta/20 text-sm"
                         >
                           <ExternalLink className="w-4 h-4" />
                           View Live Demo
